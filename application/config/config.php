@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://hospedagem.ifspguarulhos.edu.br/~gu1700928/Saude/';
+$config['base_url'] = 'http://localhost/tocadascoisas';
 
 /*
 |--------------------------------------------------------------------------
