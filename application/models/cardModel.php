@@ -31,7 +31,7 @@ class cardModel extends CI_Model
             $html .= "<img class='card-img-top' src='https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%28131%29.jpg' alt='Card image cap'>
                     </div>";
             $html .= '<div class="card-body">';
-            $html .= "<h4 class='card-title'>$row->empresa</h4><hr>";
+            $html .= "<h4 class='card-title' href='#$row->empresa'>$row->empresa</h4><hr>";
             $html .= "<p class='card-text'>$row->descricao</p>";
             $html .= '<div class="text-center">';
             $html .= "<a class='px-3 fa-2x tw-ic' href='https://wa.me/$row->numero'><i class='fab fa-whatsapp black-text'></i></a>";
@@ -40,10 +40,10 @@ class cardModel extends CI_Model
             $html .= "</div>";
             $html .= "<div class='text-right mt-3'>";
             $html .= "<a href='https://$row->site' target='_blanck' class='black-text d-flex justify-content-end'>
-                        <h5>Site 
-                            <i class='fas fa-angle-double-right px-2x'></i>
-                        </h5>
-                    </a>";
+                            <h5>Visite o site da $row->empresa
+                                <i class='fas fa-angle-double-right px-2x'></i>
+                            </h5>
+                        </a>";
             $html .= '</div>';
             $html .= '</div>';
             $html .= '</div>';

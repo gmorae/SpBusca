@@ -17,6 +17,7 @@ class Welcome extends CI_Controller
 		parent::__construct();
 		$this->load->view('common/header');
 		$this->load->view('common/footer');
+		$this->load->view('common/navbar');
 	}
 	
 	public function index()
