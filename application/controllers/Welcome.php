@@ -18,12 +18,14 @@ class Welcome extends CI_Controller
 		$this->load->view('common/header');
 		$this->load->view('common/footer');
 		$this->load->view('common/navbar');
+		$this->load->model('cardModel');
 	}
-	
+
 	public function index()
 	{
-		$this->load->model('cardModel');
-		$data ['card'] = $this->cardModel->exibir();
+		$this->load->view('pesquisa');
+		$data ['card']= $this->cardModel->pesquisar();
+		$data['card'] = $this->cardModel->exibir();
 		$this->load->view('card', $data);
 	}
 }
