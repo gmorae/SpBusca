@@ -1,28 +1,54 @@
-<h1><?php echo lang('login_heading');?></h1>
-<p><?php echo lang('login_subheading');?></p>
+<style>
+  body {
+    background: #eee url('https://www.c2tiapps.com/imagens/bg_login.png');
+  }
+</style>
+<div class="container mt-5">
+  <div class="row">
+    <div class="mx-auto">
+      <div class="card">
+        <div class="card-body">
+          <div class="text-center">
+            <h1><?php echo lang('login_heading'); ?></h1>
+            <hr class="my-4">
+            <p><?php echo lang('login_subheading'); ?></p>
+            <div id="infoMessage" class="alert-danger"><?php echo $message; ?></div>
+            <?php echo form_open("auth/login"); ?>
+            <form>
+              <div class="form-group row">
+                <div class="col-sm-12">
+                  <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text"><i class="fas fa-user"></i></div>
+                    </div>
+                    <input type="text" class="form-control py-0" name="identity" id="identity" placeholder="E-mail">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-12">
+                  <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text"><i class="fas fa-unlock"></i></div>
+                    </div>
+                    <input type="password" class="form-control py-0" name="password" id="password" placeholder="Senha">
+                  </div>
+                </div>
+              </div>
+              
+              <p class="text-left"><a href="forgot_password"><?php echo lang('login_forgot_password'); ?></a></p>
+              <br>
+              <div class="form-group row">
+                <div class="col-sm-12">
+                  <button type="submit" class="btn orange btn-md">Acessar</button>
+                </div>
+              </div>
+              <?php echo form_close(); ?>
 
-<div id="infoMessage"><?php echo $message;?></div>
-
-<?php echo form_open("auth/login");?>
-
-  <p>
-    <?php echo lang('login_identity_label', 'identity');?>
-    <?php echo form_input($identity);?>
-  </p>
-
-  <p>
-    <?php echo lang('login_password_label', 'password');?>
-    <?php echo form_input($password);?>
-  </p>
-
-  <p>
-    <?php echo lang('login_remember_label', 'remember');?>
-    <?php echo form_checkbox('remember', '1', FALSE, 'id="remember"');?>
-  </p>
-
-
-  <p><?php echo form_submit('submit', lang('login_submit_btn'));?></p>
-
-<?php echo form_close();?>
-
-<p><a href="forgot_password"><?php echo lang('login_forgot_password');?></a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

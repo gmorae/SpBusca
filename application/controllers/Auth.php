@@ -15,10 +15,16 @@ class Auth extends CI_Controller
 		$this->load->database();
 		$this->load->library(['ion_auth', 'form_validation']);
 		$this->load->helper(['url', 'language']);
-
 		$this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
-
 		$this->lang->load('auth');
+		$this->load->view('common/header');
+		$this->load->view('common/footer');
+		if (!$this->ion_auth->is_admin()){
+			$this->load->view('common/navbar');
+		}else {
+			# code...
+		}
+
 	}
 
 	/**
