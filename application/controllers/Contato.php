@@ -12,11 +12,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Contato extends CI_Controller
 {
-
+    
     public function __construct()
     {
         parent::__construct();
-        $this->load->view('common/header');
+        $data ['title'] = 'Toca das coisas | Contato';
+        $this->load->view('common/header', $data);
         $this->load->view('common/footer');
         $this->load->view('common/navbar');
     }

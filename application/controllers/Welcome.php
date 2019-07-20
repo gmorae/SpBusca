@@ -15,6 +15,8 @@ class Welcome extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		$data ['title'] = 'Toca das coisas | Home';
+        $this->load->view('common/header', $data);
 		$this->load->view('common/header');
 		$this->load->view('common/footer');
 		$this->load->view('common/navbar');

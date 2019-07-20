@@ -17,12 +17,16 @@ class Auth extends CI_Controller
 		$this->load->helper(['url', 'language']);
 		$this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
 		$this->lang->load('auth');
-		$this->load->view('common/header');
 		$this->load->view('common/footer');
 		if (!$this->ion_auth->is_admin()){
+			$data ['title'] = 'Sistema gerenciador de empresas';
 			$this->load->view('common/navbar');
+			$this->load->view('common/header', $data);
+			
 		}else {
-			# code...
+			$data ['title'] = 'Sistema administrador';
+			$this->load->view('common/navbar_adm');
+			$this->load->view('common/header', $data);
 		}
 
 	}
@@ -87,7 +91,11 @@ class Auth extends CI_Controller
 				//if the login is successful
 				//redirect them back to the home page
 				$this->session->set_flashdata('message', $this->ion_auth->messages());
-				redirect('/', 'refresh');
+				if ($this->ion_auth->is_admin()){
+					redirect('adm');
+				}else {
+					redirect('administrador');
+				}
 			}
 			else
 			{
@@ -480,7 +488,6 @@ class Auth extends CI_Controller
 
 		// validate form input
 		$this->form_validation->set_rules('first_name', $this->lang->line('create_user_validation_fname_label'), 'trim|required');
-		$this->form_validation->set_rules('last_name', $this->lang->line('create_user_validation_lname_label'), 'trim|required');
 		if ($identity_column !== 'email')
 		{
 			$this->form_validation->set_rules('identity', $this->lang->line('create_user_validation_identity_label'), 'trim|required|is_unique[' . $tables['users'] . '.' . $identity_column . ']');
@@ -491,9 +498,16 @@ class Auth extends CI_Controller
 			$this->form_validation->set_rules('email', $this->lang->line('create_user_validation_email_label'), 'trim|required|valid_email|is_unique[' . $tables['users'] . '.email]');
 		}
 		$this->form_validation->set_rules('phone', $this->lang->line('create_user_validation_phone_label'), 'trim');
-		$this->form_validation->set_rules('company', $this->lang->line('create_user_validation_company_label'), 'trim');
 		$this->form_validation->set_rules('password', $this->lang->line('create_user_validation_password_label'), 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|matches[password_confirm]');
 		$this->form_validation->set_rules('password_confirm', $this->lang->line('create_user_validation_password_confirm_label'), 'required');
+		$this->form_validation->set_rules('cnpj', $this->lang->line('create_user_validation_cep_label'), 'trim');
+		$this->form_validation->set_rules('cep', $this->lang->line('create_user_validation_cep_label'), 'trim');
+		$this->form_validation->set_rules('rua', $this->lang->line('create_user_validation_endereco_label'), 'trim');
+		$this->form_validation->set_rules('cidade', $this->lang->line('create_user_validation_cidade_label'), 'trim');
+		$this->form_validation->set_rules('uf', $this->lang->line('create_user_validation_estado_label'), 'trim');
+		$this->form_validation->set_rules('numero', $this->lang->line('create_user_validation_numero_label'), 'trim');
+		$this->form_validation->set_rules('bairro', $this->lang->line('create_user_validation_bairro_label'), 'trim');
+		$this->form_validation->set_rules('complemento', $this->lang->line('create_user_validation_complemento_label'), 'trim');
 
 		if ($this->form_validation->run() === TRUE)
 		{
@@ -503,9 +517,15 @@ class Auth extends CI_Controller
 
 			$additional_data = [
 				'first_name' => $this->input->post('first_name'),
-				'last_name' => $this->input->post('last_name'),
-				'company' => $this->input->post('company'),
 				'phone' => $this->input->post('phone'),
+				'cnpj' => $this->input->post('cnpj'),
+				'cep' => $this->input->post('cep'),
+				'endereco' => $this->input->post('rua'),
+				'cidade' => $this->input->post('cidade'),
+				'estado' => $this->input->post('uf'),
+				'numero' => $this->input->post('numero'),
+				'bairro' => $this->input->post('bairro'),
+				'complemento' => $this->input->post('complemento'),
 			];
 		}
 		if ($this->form_validation->run() === TRUE && $this->ion_auth->register($identity, $password, $email, $additional_data))
@@ -527,12 +547,7 @@ class Auth extends CI_Controller
 				'type' => 'text',
 				'value' => $this->form_validation->set_value('first_name'),
 			];
-			$this->data['last_name'] = [
-				'name' => 'last_name',
-				'id' => 'last_name',
-				'type' => 'text',
-				'value' => $this->form_validation->set_value('last_name'),
-			];
+			
 			$this->data['identity'] = [
 				'name' => 'identity',
 				'id' => 'identity',
@@ -545,12 +560,7 @@ class Auth extends CI_Controller
 				'type' => 'text',
 				'value' => $this->form_validation->set_value('email'),
 			];
-			$this->data['company'] = [
-				'name' => 'company',
-				'id' => 'company',
-				'type' => 'text',
-				'value' => $this->form_validation->set_value('company'),
-			];
+			
 			$this->data['phone'] = [
 				'name' => 'phone',
 				'id' => 'phone',
