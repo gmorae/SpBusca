@@ -39,26 +39,26 @@
                     </div>
                 </form>
                 <div class="text-center text-md-left">
-                    <button class="btn orange" type="submit">Enviar</button>
+                    <button class="btn red accent-4" type="submit">Enviar</button>
                 </div>
             </div>
             <div class="col-md-3 text-center">
                 <ul class="list-unstyled mb-0">
                     <li>
                         <a href="" class="black-text">
-                            <i class="fas fa-map-marker-alt fa-2x orange-text"></i>
+                            <i class="fas fa-map-marker-alt fa-2x red-text"></i>
                             <p>San Francisco, CA 94126, USA</p>
                         </a>
                     </li>
                     <li>
                         <a href="" class="black-text">
-                            <i class="fas fa-phone fa-2x mt-4 orange-text"></i>
+                            <i class="fas fa-phone fa-2x mt-4 red-text"></i>
                             <p>+55 11 </p>
                         </a>
                     </li>
                     <li>
                         <a href="malito:atendimento@tocadascoisas.com.br">
-                            <i class="fas fa-envelope fa-2x mt-4 orange-text"></i>
+                            <i class="fas fa-envelope fa-2x mt-4 red-text"></i>
                             <p class="mb-0 black-text">atendimento@tocadascoisas.com.br</p>
                         </a>
                     </li>

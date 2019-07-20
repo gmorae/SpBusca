@@ -40,7 +40,7 @@
               <br>
               <div class="form-group row">
                 <div class="col-sm-12">
-                  <button type="submit" class="btn orange btn-md">Acessar</button>
+                  <button type="submit" class="btn red accent-4 btn-md">Acessar</button>
                 </div>
               </div>
               <?php echo form_close(); ?>

@@ -1,4 +1,4 @@
-<nav class="mb-1 navbar navbar-expand-lg navbar-dark orange lighten-1">
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark red accent-4">
   <a class="navbar-brand black-text" href="<?= base_url() ?>">Toca das coisas</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>

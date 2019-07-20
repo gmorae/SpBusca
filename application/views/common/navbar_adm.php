@@ -1,5 +1,5 @@
 <?php $user = $this->ion_auth->user()->row()->username; ?>
-<nav class="mb-1 navbar navbar-expand-lg navbar-dark orange lighten-1">
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark red accent-4 lighten-1">
     <a class="navbar-brand" href="<?= base_url('adm') ?>">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555" aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

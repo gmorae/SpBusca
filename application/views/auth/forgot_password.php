@@ -36,7 +36,7 @@
                                           </div>
                                           <div class="form-group row">
                                                 <div class="col-sm-12">
-                                                      <button type="submit" class="btn orange btn-md">Recuperar senha
+                                                      <button type="submit" class="btn red accent-4 btn-md">Recuperar senha
                                                             <i class="fas fa-angle-double-right"></i>
                                                       </button>
                                                 </div>

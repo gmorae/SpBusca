@@ -17,10 +17,10 @@ class Welcome extends CI_Controller
 		parent::__construct();
 		$data ['title'] = 'Toca das coisas | Home';
         $this->load->view('common/header', $data);
-		$this->load->view('common/header');
 		$this->load->view('common/footer');
 		$this->load->view('common/navbar');
 		$this->load->model('cardModel');
+		// $this->load->view('botao/subir');
 	}
 
 	public function index()

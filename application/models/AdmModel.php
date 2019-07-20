@@ -12,15 +12,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class AdmModel extends CI_Model{
 
     public function somaUsuarios(){
-        $sql = "SELECT count(id) 
-        FROM users";
+        $sql = "SELECT count(id_card) 
+        FROM card";
         $rs = $this->db->query($sql);
         return $rs->result_array()[0];
     }
 
     public function somaMensal(){
-        $sql = "SELECT count(id) * 30 
-        FROM users";
+        $sql = "SELECT count(id_card) * 30,00 
+        FROM card";
         $rs = $this->db->query($sql);
         return $rs->result_array()[0];
     }
