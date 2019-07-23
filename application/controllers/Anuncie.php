@@ -14,7 +14,7 @@ class Anuncie extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $data ['title'] = 'SPbusca | Anuncie sua empresa';
+        $data ['title'] = 'SpBusca | Anuncie sua empresa';
         $this->load->view('common/header',$data);
         $this->load->view('common/footer');
         $this->load->view('common/navbar');

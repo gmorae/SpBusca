@@ -13,13 +13,13 @@
       <li class="nav-item">
         <a class="nav-link black-text my-1" href="<?= base_url('contato') ?>">Fale conosco</a>
       </li>
+    </ul>
+    <ul class="navbar-nav ml-auto nav-flex-icons">
       <li class="nav-item">
         <a class="nav-link waves-effect waves-light" href="<?= base_url('anuncie') ?>">
           <button class="btn btn-outline-black btn-sm my-0" type="submit"><i class="fas fa-plus"></i> Anuncie sua empresa</button>
         </a>
       </li>
-    </ul>
-    <ul class="navbar-nav ml-auto nav-flex-icons">
       <li class="nav-item avatar">
         <a class="nav-link p-0" href="<?= base_url('auth/login') ?>">
           <img src="https://secure.webtoolhub.com/static/resources/icons/set110/7d2f7e06.png" class="rounded-circle z-depth-0" alt="avatar image" height="35">

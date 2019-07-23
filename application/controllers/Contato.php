@@ -16,7 +16,7 @@ class Contato extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $data ['title'] = 'Toca das coisas | Contato';
+        $data ['title'] = 'SpBusca | Contato';
         $this->load->view('common/header', $data);
         $this->load->view('common/footer');
         $this->load->view('common/navbar');
