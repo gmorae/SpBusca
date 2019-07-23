@@ -1,5 +1,5 @@
 <nav class="mb-1 navbar navbar-expand-lg navbar-dark red accent-4">
-  <a class="navbar-brand black-text" href="<?= base_url() ?>">Toca das coisas</a>
+  <a class="navbar-brand black-text" href="<?= base_url() ?>"><img src="<?= base_url('imagens/logo.png') ?>" style="width: 100px" class="ml-5 img-fluid"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -12,6 +12,9 @@
       </li>
       <li class="nav-item">
         <a class="nav-link black-text" href="<?= base_url('contato') ?>">Fale conosco</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link black-text" href="<?= base_url('contato') ?>">Anuncie sua empresa</a>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto nav-flex-icons">

@@ -49,4 +49,42 @@ class UsuarioModel extends CI_Model
         }
         return $html;
     }
+
+    public function editarImagem(){
+        
+    }
+
+    public function editarTitulo(){
+        $id = $this->ion_auth->user()->row()->id;
+        $sql = "SELECT *
+            FROM card
+            INNER JOIN users ON users.id = card.id_usuario
+            and users.id = $id";
+        $rs = $this->db->query($sql);
+        $m = $rs->result();
+        $html = '';
+
+        foreach ($m as $row) {
+            $html .= "<div class='md-form'>
+                        <input type='text' id='form1' class='form-control' value='$row->empresa' placeholder='Nome da empresa   '>
+                    </div>";
+        }
+        return $html;
+    }
+
+    public function editarDescricao(){
+        
+    }
+
+    public function editarRedesSocial(){
+        
+    }
+
+    public function editarSite(){
+        
+    }
+
+    public function editarDados(){
+        
+    }
 }

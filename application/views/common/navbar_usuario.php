@@ -1,7 +1,7 @@
 <?php $user = $this->ion_auth->user()->row()->username; ?>
 <?php $email = $this->ion_auth->user()->row()->email; ?>
 <nav class="mb-1 navbar navbar-expand-lg navbar-dark red accent-4 lighten-1">
-    <a class="navbar-brand" href="<?= base_url('administrador') ?>"><?= $user ?></a>
+    <a class="navbar-brand" href="<?= base_url('administrador') ?>"><img src="<?= base_url('imagens/logo.png') ?>" style="width: 100px" class="ml-5 img-fluid"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555" aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -13,10 +13,10 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('#') ?>">Editar dados</a>
+                <a class="nav-link" href="<?= base_url('administrador/editarDados') ?>">Editar dados</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('#') ?>">Editar senha</a>
+                <a class="nav-link" href="<?= base_url('auth/change_password') ?>">Editar senha</a>
             </li>
         </ul>
         <ul class="navbar-nav ml-auto nav-flex-icons">

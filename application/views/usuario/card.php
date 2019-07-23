@@ -30,7 +30,7 @@
                 </a>
             </div>
             <div class="card-body">
-                <a href="<?= base_url('Administrador/EditarTexto') ?>">
+                <a href="<?= base_url('Administrador/EditarTitulo') ?>">
                     <button type="button" class="btn btn-sm btn-elegant"><i class="fas fa-align-center pr-2" aria-hidden="true"></i>Editar Titulo</button>
                 </a>
                 <hr>
