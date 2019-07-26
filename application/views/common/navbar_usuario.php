@@ -18,6 +18,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('auth/change_password') ?>">Editar senha</a>
             </li>
+            <?= $menu ?>
         </ul>
         <ul class="navbar-nav ml-auto nav-flex-icons">
             <li class="nav-item my-1">
@@ -26,7 +27,6 @@
             <li class="nav-item">
                 <a class="nav-link waves-effect waves-light" href="<?= base_url('auth/logout') ?>">
                     <button class="btn btn-outline-white btn-sm my-0" type="submit">sair<i class="fas fa-sign-out-alt"></i></button>
-
                 </a>
             </li>
         </ul>

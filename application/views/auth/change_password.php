@@ -27,7 +27,7 @@
 
                                     <?php echo form_input($user_id); ?>
                                     <div class="text-center py-4 mt-3">
-                                          <button class="btn btn-green" type="submit"><?= lang('change_password_submit_btn');?></button>
+                                          <button class="btn btn-red" type="submit"><?= lang('change_password_submit_btn');?></button>
                                     </div>
                                     <?php echo form_close(); ?>
                               </div>

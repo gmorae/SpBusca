@@ -14,8 +14,8 @@ class Anuncie extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $data ['title'] = 'SpBusca | Anuncie sua empresa';
-        $this->load->view('common/header',$data);
+        $data['title'] = 'SpBusca | Anuncie sua empresa';
+        $this->load->view('common/header', $data);
         $this->load->view('common/footer');
         $this->load->view('common/navbar');
         $this->load->model('');
@@ -25,4 +25,5 @@ class Anuncie extends CI_Controller
     {
         $this->load->view('anuncie/titulo');
     }
+    
 }

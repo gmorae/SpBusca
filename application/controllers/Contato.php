@@ -20,6 +20,8 @@ class Contato extends CI_Controller
         $this->load->view('common/header', $data);
         $this->load->view('common/footer');
         $this->load->view('common/navbar');
+        $this->load->helper('string');
+
     }
 
     public function index()
@@ -50,10 +52,10 @@ class Contato extends CI_Controller
             /**
              * Configuração para enviar email
              */
-            $senha = 'xxxx';
-            $host = 'ssl://mail.tocadascoisas.com.br';
+            $senha = 'spbusca2019';
+            $host = 'ssl:mail.spbusca.com.br';
             $porta = 465;
-            $user = 'atendimento@tocadascoisas.com.br';
+            $user = 'atendimento@spbusca.com.br';
             $config = array(
                 'protocol' => 'smtp',
                 'smtp_host' => $host,

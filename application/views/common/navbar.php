@@ -21,7 +21,7 @@
         </a>
       </li>
       <li class="nav-item avatar">
-        <a class="nav-link p-0" href="<?= base_url('auth/login') ?>">
+        <a class="nav-link p-0 my-2" href="<?= base_url('auth/login') ?>">
           <img src="https://secure.webtoolhub.com/static/resources/icons/set110/7d2f7e06.png" class="rounded-circle z-depth-0" alt="avatar image" height="35">
         </a>
       </li>

@@ -1,16 +1,15 @@
 <div class="container mt-5">
-    <div class="row">
-        <div class="col-6">
-            <div class="text-center">
-                <p class="h3">
+    <div class='row'>
+        <div class='col-6'>
+            <div class='text-center'>
+                <p class='h3'>
                     Conteúdos editáveis
                 </p>
             </div>
-
         </div>
-        <div class="col-6">
-            <div class="text-center">
-                <p class="h3">
+        <div class='col-6'>
+            <div class='text-center'>
+                <p class='h3'>
                     Conteúdo publicado
                 </p>
             </div>
@@ -19,7 +18,7 @@
     <div class="card-deck">
         <div class="card my-4">
             <div class="view overlay zoom">
-                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%28131%29.jpg" alt="Card image cap">
+                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%2855%29.jpg" alt="Card image cap">
                 <a>
                     <div class="mask rgba-white-slight"></div>
                 </a>
@@ -60,6 +59,7 @@
                 </div>
             </div>
         </div>
+        
         <?= $card ?>
     </div>
 </div>

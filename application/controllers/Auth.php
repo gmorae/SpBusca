@@ -25,8 +25,10 @@ class Auth extends CI_Controller
 		} else {
 			$group = 'members';
 			if ($this->ion_auth->in_group($group)) {
+				$this->load->model('UsuarioModel', 'model');
 				$data['title'] = 'Sistema administrador';
-				$this->load->view('common/navbar_usuario');
+				$data ['menu'] = $this->model->menu();
+				$this->load->view('common/navbar_usuario', $data);
 				$this->load->view('common/header', $data);
 			} else {
 				$data['title'] = 'Sistema gerenciador de empresas';
@@ -79,7 +81,7 @@ class Auth extends CI_Controller
 		// validate form input
 		$this->form_validation->set_rules('identity', str_replace(':', '', $this->lang->line('login_identity_label')), 'required');
 		$this->form_validation->set_rules('password', str_replace(':', '', $this->lang->line('login_password_label')), 'required');
-
+		$this->load->model('UsuarioModel', 'model');
 		if ($this->form_validation->run() === TRUE) {
 			// check to see if the user is logging in
 			// check for "remember me"
@@ -92,7 +94,11 @@ class Auth extends CI_Controller
 				if ($this->ion_auth->is_admin()) {
 					redirect('adm');
 				} else {
-					redirect('administrador');
+					if ($this->ion_auth->user()->row()->last_name == '0') {
+						redirect('administrador/cadastro');	
+					}else {
+						redirect('administrador');	
+					}
 				}
 			} else {
 				// if the login was un-successful
@@ -421,10 +427,6 @@ class Auth extends CI_Controller
 	{
 		$this->data['title'] = $this->lang->line('create_user_heading');
 
-		if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin()) {
-			redirect('auth', 'refresh');
-		}
-
 		$tables = $this->config->item('tables', 'ion_auth');
 		$identity_column = $this->config->item('identity', 'ion_auth');
 		$this->data['identity_column'] = $identity_column;
@@ -437,16 +439,16 @@ class Auth extends CI_Controller
 		} else {
 			$this->form_validation->set_rules('email', $this->lang->line('create_user_validation_email_label'), 'trim|required|valid_email|is_unique[' . $tables['users'] . '.email]');
 		}
-		$this->form_validation->set_rules('phone', $this->lang->line('create_user_validation_phone_label'), 'trim');
+		$this->form_validation->set_rules('phone', $this->lang->line('create_user_validation_phone_label'), 'trim|required');
 		$this->form_validation->set_rules('password', $this->lang->line('create_user_validation_password_label'), 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|matches[password_confirm]');
 		$this->form_validation->set_rules('password_confirm', $this->lang->line('create_user_validation_password_confirm_label'), 'required');
 		$this->form_validation->set_rules('cnpj', $this->lang->line('create_user_validation_cep_label'), 'trim');
 		$this->form_validation->set_rules('cep', $this->lang->line('create_user_validation_cep_label'), 'trim');
-		$this->form_validation->set_rules('rua', $this->lang->line('create_user_validation_endereco_label'), 'trim');
-		$this->form_validation->set_rules('cidade', $this->lang->line('create_user_validation_cidade_label'), 'trim');
-		$this->form_validation->set_rules('uf', $this->lang->line('create_user_validation_estado_label'), 'trim');
-		$this->form_validation->set_rules('numero', $this->lang->line('create_user_validation_numero_label'), 'trim');
-		$this->form_validation->set_rules('bairro', $this->lang->line('create_user_validation_bairro_label'), 'trim');
+		$this->form_validation->set_rules('rua', $this->lang->line('create_user_validation_endereco_label'), 'trim|required');
+		$this->form_validation->set_rules('cidade', $this->lang->line('create_user_validation_cidade_label'), 'trim|required');
+		$this->form_validation->set_rules('uf', $this->lang->line('create_user_validation_estado_label'), 'trim|required');
+		$this->form_validation->set_rules('numero', $this->lang->line('create_user_validation_numero_label'), 'trim|required');
+		$this->form_validation->set_rules('bairro', $this->lang->line('create_user_validation_bairro_label'), 'trim|required');
 		$this->form_validation->set_rules('complemento', $this->lang->line('create_user_validation_complemento_label'), 'trim');
 
 		if ($this->form_validation->run() === TRUE) {
@@ -459,7 +461,7 @@ class Auth extends CI_Controller
 				'phone' => $this->input->post('phone'),
 				'cnpj' => $this->input->post('cnpj'),
 				'cep' => $this->input->post('cep'),
-				'endereco' => $this->input->post('rua'),
+				'rua' => $this->input->post('rua'),
 				'cidade' => $this->input->post('cidade'),
 				'estado' => $this->input->post('uf'),
 				'numero' => $this->input->post('numero'),
