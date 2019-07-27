@@ -24,6 +24,7 @@ class Anuncie extends CI_Controller
     public function index()
     {
         $this->load->view('anuncie/titulo');
+        $this->load->view('common/rodape');
     }
     
 }

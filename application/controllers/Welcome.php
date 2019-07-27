@@ -29,5 +29,6 @@ class Welcome extends CI_Controller
 		$data ['card']= $this->cardModel->pesquisar();
 		$data['card'] = $this->cardModel->exibir();
 		$this->load->view('card', $data);
+		$this->load->view('common/rodape');
 	}
 }

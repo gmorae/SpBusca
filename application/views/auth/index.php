@@ -35,7 +35,8 @@
 					<th class="text-center"><?= lang('index_phone_th'); ?></th>
 					<th class="text-center"><?= lang('index_email_th'); ?></th>
 					<th class="text-center"><?= lang('index_groups_th'); ?></th>
-					<th class="text-center"><?= lang('index_status_th'); ?></th>
+					<th class="text-center"><?= lang('index_status_th'); ?> Login</th>
+					<th class="text-center">Publicação</th>
 					<th class="text-center"><?= lang('index_action_th'); ?></th>
 					<th class="text-center"><?= lang('index_vizualizar_th'); ?></th>
 				</tr>
@@ -84,6 +85,26 @@
 							</span>
 						</td>
 						<td>
+							<span class="table-acao">
+								<?php
+								if ($user->estado_pagamento == '0') {
+									$color = 'btn light-green lighten-2';
+									$titulo = 'Ativo';
+									$url = base_url('adm/desativar/'.$user->id);
+								} else {
+									$color = 'btn-danger';
+									$titulo = 'Desativado';
+									$url = base_url('adm/ativar/'.$user->id);
+								}
+								?>
+								<a href="<?= $url ?>">
+									<button type="button" class="btn <?= $color ?> btn-sm my-0">
+										<div class="black-text"><?= $titulo ?></fiv>
+									</button>
+								</a>
+							</span>
+						</td>
+						<td>
 							<span class="table-edit">
 								<a href="<?= base_url('auth/edit_user/') ?>">
 
@@ -111,7 +132,8 @@
 					<th class="th-sm"><?= lang('index_phone_th'); ?></th>
 					<th class="th-sm"><?= lang('index_email_th'); ?></th>
 					<th class="th-sm"><?= lang('index_groups_th'); ?></th>
-					<th class="th-sm"><?= lang('index_status_th'); ?></th>
+					<th class="text-center"><?= lang('index_status_th'); ?> Login</th>
+					<th class="text-center">Publicação</th>
 					<th class="th-sm"><?= lang('index_action_th'); ?></th>
 					<th class="th-sm"><?= lang('index_vizualizar_th'); ?></th>
 				</tr>
@@ -120,4 +142,3 @@
 	</div>
 	</section>
 </div>
-

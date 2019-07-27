@@ -7,7 +7,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title><?= $title ?></title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
-  <link href= "<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
+  <link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
   <link href="<?= base_url('assets/css/mdb.min.css') ?>" rel="stylesheet">
   <link href="<?= base_url('assets/css/style.css') ?>" rel="stylesheet">
   <link href="<?= base_url('assets/css/animation.css') ?>" rel="stylesheet">
@@ -18,3 +18,8 @@
 </head>
 
 <body id="#top">
+  <style>
+    p, h1, h2, h3, h4, a {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  </style>

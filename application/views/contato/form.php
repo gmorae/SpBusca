@@ -3,12 +3,7 @@
         <h2 class="h1-responsive font-weight-bold text-center my-5">Fale conosco</h2>
         <p class="text-center w-responsive mx-auto">Olá, envia-nos uma mensagem de duvida ou de contato, entraremos em contoto dentro de 24 horas</p>
         <div class="text-center text-md-center mb-5">
-            <?php
-                $telefone1 = '1000' or '1';
-            ?>
-            <a href="https://wa.me/5511<?= $telefone1 ?>text=Olá, gostaria de mais informações?">    
-                <button class="btn green accent-4" type="button">Para mais informações<i class="fab fa-whatsapp ml-2"></i></button>
-            </a>
+            <button class="btn green accent-4" data-toggle="modal" data-target="#whatsapp" type="button">Para mais informações<i class="fab fa-whatsapp ml-2"></i></button>
         </div>
         <div class="row">
             <div class="col-md-12 mb-md-0 mb-5">
@@ -50,4 +45,24 @@
             </div>
         </div>
     </section>
+</div>
+<div class="modal fade" id="whatsapp" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-notify modal-success" role="document">
+        <div class="modal-content text-center">
+            <div class="modal-header d-flex justify-content-center">
+                <p class="heading">WhatsaApp<i class="fab fa-whatsapp ml-2 fa-1x animated rotateIn white-text"></i></p>
+            </div>
+            <div class="modal-body">
+
+                <p class="text-center">Escolha um número para entrar em contato<br></p>
+            </div>
+            <div class="flex-center">
+                <a href="https://wa.me/5511949970853?text=Olá." class="btn btn-success waves-effect">Atendimento 1 <i class="fas fa-angle-double-right ml-2"></i></a>
+            </div>
+            <div class="flex-center mb-3">
+                <a href="https://wa.me/5511994010204?text=Olá." class="btn btn-success waves-effect">Atendimento 2<i class="fas fa-angle-double-right ml-2"></i></a>
+            </div>
+
+        </div>
+    </div>
 </div>

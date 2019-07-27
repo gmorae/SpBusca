@@ -52,40 +52,43 @@ class Administrador extends CI_Controller
     {
         $data['input'] = $this->model->editarImagem();
         $data['titulo'] = '';
-        $this->load->view('usuario/formImagem', $data);
+        $this->load->view('usuario/formEditavel', $data);
     }
 
     public function EditarTitulo()
     {
         $data['input'] = $this->model->editarTitulo();
         $data['titulo'] = 'Editar titulo';
-        $this->load->view('usuario/formTitulo', $data);
+        $this->load->view('usuario/formEditavel', $data);
     }
 
     public function EditarDescricao()
     {
         $data['input'] = $this->model->editarDescricao();
-        $data['titulo'] = '';
-        $this->load->view('usuario/formDescricao', $data);
+        $data['titulo'] = 'Editar ';
+        $this->load->view('usuario/formEditavel', $data);
     }
 
     public function EditarRedeSocial()
     {
         $data['input'] = $this->model->editarRedesSocial();
         $data['titulo'] = '';
-        $this->load->view('usuario/formRedeSocia', $data);
+        $this->load->view('usuario/formEditavel', $data);
     }
 
     public function EditarSite()
     {
+        $id = $this->ion_auth->user()->row()->id;
         $data['input'] = $this->model->editarSite();
         $data['titulo'] = '';
-        $this->load->view('usuario/formSite', $data);
+        $this->model->atualizar($id);
+        $this->load->view('usuario/formEditavel', $data);
     }
     public function editarDados()
     {
-        $data['input'] = $this->model->editarDados();
-        $data['titulo'] = '';
-        $this->load->view('usuario/formDados', $data);
+        $id = $this->ion_auth->user()->row()->id;
+        $this->model->editarDados($id);
+        $this->load->view('auth/create_user');
+
     }
 }

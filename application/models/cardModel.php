@@ -18,7 +18,7 @@ class cardModel extends CI_Model
     {
         $sql = "SELECT *
         FROM card
-        INNER JOIN users ON users.id = card.id_usuario and card.estado_pagamento = 0 ORDER BY cadastro asc";
+        INNER JOIN users ON users.id = card.id_usuario and users.estado_pagamento = 0 ORDER BY cadastro asc";
         $rs = $this->db->query($sql);
         $m = $rs->result();
         $html = '';

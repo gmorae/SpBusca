@@ -100,5 +100,6 @@ class Contato extends CI_Controller
             $this->email->send();
         }
         $this->load->view('contato/form');
+        $this->load->view('common/rodape');
     }
 }

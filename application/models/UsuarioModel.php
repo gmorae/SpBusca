@@ -87,7 +87,7 @@ class UsuarioModel extends CI_Model
         $this->db->query($sql);
         $update = "UPDATE  users SET last_name =  '1' WHERE  users.id = $id_usuario";
         $this->db->query($update);
-        redirect('administrador'); 
+        redirect('administrador');
     }
     public function mostraTitulo()
     {
@@ -138,7 +138,7 @@ class UsuarioModel extends CI_Model
         foreach ($m as $row) {
             $html .= "<div class='card my-4'>";
             $html .= "<div class='view overlay zoom'>";
-            $html .= "<img class='card-img-top' src='".base_url('imagens/empresas/'.$row->imagem.'.png')."' alt='Card image cap'>
+            $html .= "<img class='card-img-top' src='" . base_url('imagens/empresas/' . $row->imagem . '.png') . "' alt='Card image cap'>
                     </div>";
             $html .= '<div class="card-body">';
             $html .= "<h4 class='card-title' href='#$row->empresa'>$row->empresa</h4><hr>";
@@ -185,14 +185,84 @@ class UsuarioModel extends CI_Model
     }
 
     public function editarDescricao()
-    { }
+    {
+        $id = $this->ion_auth->user()->row()->id;
+        $sql = "SELECT *
+            FROM card
+            INNER JOIN users ON users.id = card.id_usuario
+            and users.id = $id";
+        $rs = $this->db->query($sql);
+        $m = $rs->result();
+        $html = '';
+
+        foreach ($m as $row) {
+            $html .= "<div class='md-form'>
+                        <input type='text' id='form1' class='form-control' value='$row->descricao' placeholder='Descrição'>
+                    </div>";
+        }
+        return $html;
+    }
 
     public function editarRedesSocial()
-    { }
+    {
+        $id = $this->ion_auth->user()->row()->id;
+        $sql = "SELECT *
+            FROM card
+            INNER JOIN users ON users.id = card.id_usuario
+            and users.id = $id";
+        $rs = $this->db->query($sql);
+        $m = $rs->result();
+        $html = '';
+
+        foreach ($m as $row) {
+            $html .= "<div class='md-form'>
+                        <input type='text' id='form1' class='form-control' value='$row->numero' placeholder='Whatsapp da empresa'>
+                    </div>";
+            $html .= "<div class='md-form'>
+                        <input type='text' id='form2' class='form-control' value='$row->facebook' placeholder='Fcabook da empresa'>
+                    </div>";
+            $html .= "<div class='md-form'>
+                        <input type='text' id='form3' class='form-control' value='$row->instagram' placeholder='Instagram da empresa'>
+                    </div>";
+        }
+        return $html;
+    }
 
     public function editarSite()
-    { }
+    {
+        $id = $this->ion_auth->user()->row()->id;
+        $sql = "SELECT *
+            FROM card
+            INNER JOIN users ON users.id = card.id_usuario
+            and users.id = $id";
+        $rs = $this->db->query($sql);
+        $m = $rs->result();
+        $html = '';
+        foreach ($m as $row) {
+            $html .= "<div class='md-form'>
+                        <input type='text' id='form1' name='site' class='form-control' value='$row->site' placeholder='Site da empresa'>
+                    </div>";
+        }
+        return $html;
+    }
 
-    public function editarDados()
-    { }
+    public function atualizar($id)
+    {
+        $site = $this->input->post("site");
+        $sql = "UPDATE  card SET site = ''  WHERE  card.id_usuario = $id";
+        $this->db->query($sql);        
+    }
+
+    public function editarDados($id)
+    {
+        $sql = "SELECT *
+        FROM users 
+        where id = $id";
+        $rs = $this->db->query($sql);
+        return $rs->result_array()[0];
+        if (!sizeof($_POST)) return;
+        $data = $this->input->post();
+        $this->db->update('users', $data, "id = $id");
+        redirect('adm/listarUsuario');
+    }
 }
