@@ -21,6 +21,12 @@ class Adm extends CI_Controller
         $this->load->view('common/header', $data);
         $this->load->view('common/footer');
         $this->load->model('AdmModel', 'model');
+        $group = 'admin';
+        if (!$this->ion_auth->in_group($group)) {
+            $this->session->set_flashdata('message', 'Acesso negado');
+            redirect('/');
+        }
+        
     }
     public function index()
     {

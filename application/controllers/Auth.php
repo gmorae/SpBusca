@@ -36,6 +36,13 @@ class Auth extends CI_Controller
 				$this->load->view('common/header', $data);
 			}
 		}
+
+		$group = 'admin';
+		if (!$this->ion_auth->in_group($group)) {
+			$this->session->set_flashdata('message', 'Acesso negado');
+			redirect('/');
+		}
+		
 	}
 
 	/**
