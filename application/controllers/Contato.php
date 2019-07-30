@@ -27,6 +27,8 @@ class Contato extends CI_Controller
     public function index()
     {
 
+        $this->load->view('contato/form');
+
         /**
          * Validação nos campos
          */
@@ -99,7 +101,6 @@ class Contato extends CI_Controller
              */
             $this->email->send();
         }
-        $this->load->view('contato/form');
         $this->load->view('common/rodape');
     }
 }

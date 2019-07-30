@@ -34,7 +34,7 @@
         <!-- Content -->
         <h6 class="text-uppercase font-weight-bold">SpBusca</h6>
         <hr class="red darke-4 accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-        <p>Somos uma empresa de publicidade de empresas e marcas do estado de São Paulo, estamos a disposição dos
+        <p>Somos uma agência de publicidade de empresas e marcas do estado de São Paulo, estamos a disposição dos
           clientes.
         </p>
 
@@ -54,9 +54,9 @@
         <p>
           <a href="<?= base_url('anuncie') ?>">Anuncie sua empresa</a>
         </p>
-        <p>
-          <a href="<?= base_url('auth/login') ?>">Login</a>
-        </p>
+        <!-- <p>
+          <a href="<?= base_url('auth/login') ?>">Portal do cliente</a>
+        </p> -->
 
       </div>
 
@@ -69,9 +69,11 @@
         <p>
           <i class="fas fa-envelope mr-3"></i> atendimento@spbusca.com.br</p>
         <p>
-          <i class="fas fa-phone mr-3"></i> +55 11 99401-0204</p>
+        <a href="tel: +55 11 994010204">
+          <i class="fas fa-phone mr-3"></i> +55 11 99401-0204</a></p>
         <p>
-          <i class="fas fa-phone mr-3"></i> +55 11 994010204</p>
+          <a href="tel: +55 11 949970853">
+            <i class="fas fa-phone mr-3"></i> +55 11 94997-0853</a></p>
 
 
       </div>

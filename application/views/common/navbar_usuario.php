@@ -12,13 +12,13 @@
                     <span class="sr-only">(current)</span>
                 </a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('administrador/editarDados') ?>">Editar dados</a>
-            </li>
+            </li> -->
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('auth/change_password') ?>">Editar senha</a>
             </li>
-            <?= $menu ?>
+            <!-- <?= $menu ?> -->
         </ul>
         <ul class="navbar-nav ml-auto nav-flex-icons">
             <li class="nav-item my-1">

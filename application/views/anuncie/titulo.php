@@ -66,7 +66,7 @@
                     <p class="text-center"><i class="fab fa-google fa-5x"></i></p>
                     <p class="h3 text-center"> Destaque nos buscadores</p>
                     <p class="text-justify">
-                        Os anúncios online do GuiaMais.com estão nas primeiras páginas do Google.
+                        Os anúncios online do SpBusca estão nas primeiras páginas do Google.
                     </p>
                 </div>
                 <div class="col-md-4 mt-5">

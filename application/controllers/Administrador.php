@@ -80,7 +80,7 @@ class Administrador extends CI_Controller
     {
         $id = $this->ion_auth->user()->row()->id;
         $data['input'] = $this->model->editarSite();
-        $data['titulo'] = '';
+        $data['titulo'] = 'Editar site';
         $this->model->atualizar($id);
         $this->load->view('usuario/formEditavel', $data);
     }
