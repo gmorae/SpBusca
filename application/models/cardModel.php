@@ -39,7 +39,12 @@ class cardModel extends CI_Model
       $html .= "<img class='card-img-top' src='" . base_url('/imagens/empresas/' . $row->imagem . '.png') . "' alt='Card image cap'>
                     </div>";
       $html .= '<div class="card-body">';
-      $html .= "<p class='text-right black-text ml-5'><i class='fas fa-map-marker-alt'></i> $row->cidade, $row->estado</p></a>";
+      if (empty($row->cidade) && empty($row->estado)) {
+        '';
+      } else {
+        $html .= "<p class='text-right black-text ml-5'><i class='fas fa-map-marker-alt'></i> $row->cidade, $row->estado</p></a>";
+      }
+
       $html .= "<h4 class='card-title' href='#$row->empresa'>$row->empresa</h4>";
       $html .= '<hr>';
       $html .= "<p class='card-text'>$row->descricao</p>";
@@ -59,11 +64,14 @@ class cardModel extends CI_Model
       } else {
         $html .= "<a class='px-3 fa-2x fb-ic' href='$row->facebook' target='_blanck' ><i class='fab fa-facebook-f black-text'></i></a>";
       }
-
-      $html .= "<a class='px-3 fa-2x tw-ic' data-toggle='modal' data-target='#$row->empresa'><i class='fas fa-map-marker-alt black-text'></i></a>";
+      if (empty($row->cidade) && empty($row->estado)) {
+        '';
+      } else {
+        $html .= "<a class='px-3 fa-2x tw-ic' data-toggle='modal' data-target='#$row->empresa'><i class='fas fa-map-marker-alt black-text'></i></a>";
+      }
       $html .= "</div>";
       $html .= "<div class='text-right mt-3'>";
-      if (empty($row->empresa)) {
+      if (empty($row->site)) {
         '';
       } else {
         $html .= "<a href='https://$row->site' target='_blanck' class='black-text d-flex justify-content-end'>
