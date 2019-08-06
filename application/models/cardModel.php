@@ -49,7 +49,7 @@ class cardModel extends CI_Model
       $html .= '<hr>';
       $html .= "<p class='card-text'>$row->descricao</p>";
       $html .= '<div class="text-center">';
-      if ($row->whats > 1) {
+      if (!empty($row->whats)) {
         $html .= "<a class='px-3 fa-2x tw-ic' href='https://wa.me/55$row->whats' target='_blanck'><i class='fab fa-whatsapp black-text'></i></a>";
       } else {
         '';
