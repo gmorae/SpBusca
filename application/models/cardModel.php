@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Model responsavel por: visualizar
@@ -43,17 +44,34 @@ class cardModel extends CI_Model
       $html .= '<hr>';
       $html .= "<p class='card-text'>$row->descricao</p>";
       $html .= '<div class="text-center">';
-      $html .= "<a class='px-3 fa-2x tw-ic' href='https://wa.me/$row->numero' target='_blanck'><i class='fab fa-whatsapp black-text'></i></a>";
-      $html .= "<a class='px-3 fa-2x in-ic' href='https://instagram.com/$row->instagram' target='_blanck' ><i class='fab fa-instagram black-text'></i></a>";
-      $html .= "<a class='px-3 fa-2x fb-ic' href='https://facebook.com/$row->facebook' target='_blanck' ><i class='fab fa-facebook-f black-text'></i></a>";
+      if ($row->whats > 1) {
+        $html .= "<a class='px-3 fa-2x tw-ic' href='https://wa.me/55$row->whats' target='_blanck'><i class='fab fa-whatsapp black-text'></i></a>";
+      } else {
+        '';
+      }
+      if (empty($row->instagram)) {
+        '';
+      } else {
+        $html .= "<a class='px-3 fa-2x in-ic' href='$row->instagram' target='_blanck' ><i class='fab fa-instagram black-text'></i></a>";
+      }
+      if (empty($row->facebook)) {
+        '';
+      } else {
+        $html .= "<a class='px-3 fa-2x fb-ic' href='$row->facebook' target='_blanck' ><i class='fab fa-facebook-f black-text'></i></a>";
+      }
+
       $html .= "<a class='px-3 fa-2x tw-ic' data-toggle='modal' data-target='#$row->empresa'><i class='fas fa-map-marker-alt black-text'></i></a>";
       $html .= "</div>";
       $html .= "<div class='text-right mt-3'>";
-      $html .= "<a href='https://$row->site' target='_blanck' class='black-text d-flex justify-content-end'>
-                            <h5>Visite o site da $row->empresa
-                                <i class='fas fa-angle-double-right px-2x'></i>
-                            </h5>
-                        </a>";
+      if (empty($row->empresa)) {
+        '';
+      } else {
+        $html .= "<a href='https://$row->site' target='_blanck' class='black-text d-flex justify-content-end'>
+        <h5>Visite o site da $row->empresa
+        <i class='fas fa-angle-double-right px-2x'></i>
+        </h5>
+        </a>";
+      }
       $html .= '</div>';
       $html .= '</div>';
       $html .= '</div>';
